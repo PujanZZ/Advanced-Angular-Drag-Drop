@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+
+
+body { margin: 0; font-family: SpaceGrotesk, "Helvetica Neue", sans-serif; background: lightblue; }

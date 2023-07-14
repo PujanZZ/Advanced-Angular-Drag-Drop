@@ -1,0 +1,44 @@
+<div fxLayout="row" fxLayoutAlign="space-between">
+    <h2 *ngIf="!data?.booleanValue" style="margin: 30px 20px;">Add a ToDo</h2>
+    <h2 *ngIf="data?.booleanValue" style="margin: 30px 20px;">Update ToDo</h2>
+    <button (click)="closeDialog()" style="margin: 20px;" mat-icon-button><mat-icon>close</mat-icon></button>
+</div>
+
+<mat-divider></mat-divider>
+
+<div>
+
+    <form [formGroup]="formGroup" fxLayout="column" fxLayoutGap="10px" style="padding: 20px;">
+
+        <span>Title</span>
+        <mat-form-field appearance="outline" fxFlex="100%">
+            <mat-label>Title</mat-label>
+            <input formControlName="title" matInput>
+        </mat-form-field>
+        
+        <span>Description</span>
+        <mat-form-field appearance="outline" fxFlex="100%">
+            <mat-label>Description</mat-label>
+            <textarea formControlName="description" matInput></textarea>
+        </mat-form-field>
+
+        <span>Status</span>
+        <mat-form-field appearance="outline" fxFlex="100%">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="selection">
+                <mat-option value="Pending">Pending</mat-option>
+                <mat-option value="Finished">Finished</mat-option>
+                <mat-option value="InProgress">In-Progress</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayoutAlign="space-between">
+            <button *ngIf="!data?.booleanValue" (click)="onSave()" mat-raised-button color="accent">Create</button>
+            <button *ngIf="data?.booleanValue" (click)="onUpdate()" mat-raised-button color="accent">Update</button>
+            <button (click)="closeDialog()" mat-raised-button color="primary">Close</button>
+        </div>
+
+    </form>
+
+</div>
+
